@@ -18,7 +18,7 @@ namespace Company.Function
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
-			var myObj = new {text = ".NET Core GetMessage 2020-08-28 11:37"};
+			var myObj = new {text = ".NET Core GetMessage 2021-05-03"};
 			var jsonToReturn = JsonConvert.SerializeObject(myObj);
             return new OkObjectResult(jsonToReturn);
         }
