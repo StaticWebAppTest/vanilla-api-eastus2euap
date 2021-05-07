@@ -1,4 +1,10 @@
+import os
+import datetime
 
+os.remove("api/GetMessage.cs")
+
+f = open("api/GetMessage.cs", "a")
+f.write("""
 using System;
 using System.IO;
 using System.Threading.Tasks;
@@ -10,18 +16,20 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
 namespace Company.Function
-{
+{{
     public static class GetMessage
-    {
+    {{
         [FunctionName("GetMessage")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = "message")] HttpRequest req,
             ILogger log)
-        {
+        {{
             log.LogInformation("C# HTTP trigger function processed a request.");
-			var myObj = new {text = "2021-05-07 10:58:54.627398"};
+			var myObj = new {{text = "{dt}"}};
 			var jsonToReturn = JsonConvert.SerializeObject(myObj);
             return new OkObjectResult(jsonToReturn);
-        }
-    }
-}
+        }}
+    }}
+}}
+""".format(dt = datetime.datetime.now()))
+f.close()
