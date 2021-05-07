@@ -18,5 +18,5 @@ jobs:
         commit-msg: "Auto update getmessage.cs"
         file-path: "api/GetMessage.cs"
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        branch: master
+        branch: main
     
