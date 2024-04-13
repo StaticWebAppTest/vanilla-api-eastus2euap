@@ -19,7 +19,7 @@ namespace Company.Function
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
-			var myObj = new {text = "2024-04-13 22:03:55.836750"};
+			var myObj = new {text = "2024-04-13 23:07:24.979920"};
 			var jsonToReturn = JsonConvert.SerializeObject(myObj);
             return new OkObjectResult(jsonToReturn);
         }
